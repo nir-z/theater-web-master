@@ -1,0 +1,32 @@
+<div class='search-container'>
+      <input #search type='search' placeholder="Search a Movie" id='search-input'>
+      <a  class="button" (click)="onSearchTitle(search)">Search</a>
+</div>
+<div *ngIf="searchResults?.length > 0"  id='output-search-results'>
+  <div class="output center">
+      <div>
+        <span><b>Found Results from The Movie DB:</b></span>
+      </div>
+      <ul>
+        <li *ngFor="let res of searchResults">
+          <span>{{ res.title }}</span>
+          <div class="search-results-box">
+            <a  class="button" (click)="addMovie(res)">+</a>
+          </div>
+        </li>
+       </ul>
+    </div>
+</div>
+
+<div *ngIf="typeaheadResults?.length > 0" id='output-typeahead-results'>
+  <div class="output center">
+    <div>
+      <span><b>Suggested results typeahead:</b></span>
+    </div>
+    <ul>
+        <li *ngFor="let res of typeaheadResults">
+          <span (click)="onTypeaheadClick(search,res)" >{{ res }}</span>
+        </li>
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+<div class="content">
+    <div>
+        <app-movies-search (onMovieAddedEvent)="onMovieAdded($event)"></app-movies-search>
+    </div>
+    
+   <div>
+      <app-movies-grid [dataSource]="moviesDataSubject">></app-movies-grid>
+   </div>
+</div>
